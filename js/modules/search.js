@@ -1,26 +1,22 @@
-const input = document.querySelector('#search');
-const lis = [...document.querySelectorAll('li')];
-const ul = document.querySelector('ul');
+import { toDoList, inputSearch, lis, ul } from './vars.js';
 
 const searchTask = () => {
-  const lisWithoutBtn = lis.map(li => {
+  const toDoWithoutBtn = toDoList.map(li => {
     return li.textContent
       .split('')
       .splice(0, li.textContent.length - 1)
       .join('');
   });
 
-  const filterLis = lisWithoutBtn.filter(li => {
-    return li.toLowerCase().includes(input.value.toLowerCase());
+  const filterLis = toDoWithoutBtn.filter(li => {
+    return li.toLowerCase().includes(inputSearch.value.toLowerCase());
   });
 
-  if (input.value !== '') {
+  if (inputSearch.value !== '') {
     ul.textContent = '';
 
     let DatasetNumber = 0;
     for (const li of filterLis) {
-      DatasetNumber++;
-
       const filterLi = document.createElement('li');
       filterLi.textContent = li;
       filterLi.dataset.key = DatasetNumber;
@@ -31,13 +27,15 @@ const searchTask = () => {
 
       filterLi.appendChild(btn);
       ul.appendChild(filterLi);
+
+      DatasetNumber++;
     }
   } else {
     ul.textContent = '';
-    for (const li of lis) {
-      ul.appendChild(li);
+    for (const task of toDoList) {
+      ul.appendChild(task);
     }
   }
 };
 
-window.addEventListener('keyup', searchTask);
+export default searchTask;

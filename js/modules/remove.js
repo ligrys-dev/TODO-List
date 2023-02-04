@@ -1,0 +1,14 @@
+import { toDoList, taskNumber, ul, remove } from './vars.js';
+
+const removeTask = e => {
+  const index = e.target.dataset.key;
+  console.log(index);
+  console.log(toDoList.map(el => el.textContent));
+  toDoList.splice(index, 1);
+  console.log(toDoList.map(el => el.textContent));
+  // ul.textContent = '';
+  // remove();
+  // taskNumber.textContent = toDoList.length;
+};
+
+export default removeTask;
