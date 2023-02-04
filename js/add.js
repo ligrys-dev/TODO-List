@@ -1,8 +1,11 @@
+const toDoList = [];
+let index = 0;
+
 const form = document.querySelector('#add');
 const ul = document.querySelector('ul');
 const taskNumber = document.querySelector('h1 span');
 
-const numberOfTasks = [...document.querySelectorAll('ul li')].length;
+const numberOfTasks = toDoList.length;
 taskNumber.textContent = numberOfTasks;
 
 const addTask = e => {
@@ -11,17 +14,23 @@ const addTask = e => {
 
   if (input.value === '') return;
 
-  const li = document.createElement('li');
-  const btn = document.createElement('button');
+  ul.textContent = '';
 
+  const li = document.createElement('li');
   li.textContent = input.value;
+  li.dataset.key = index;
+
+  const btn = document.createElement('button');
   btn.textContent = 'x';
+  btn.dataset.key = index;
 
   li.appendChild(btn);
-  ul.appendChild(li);
+
+  toDoList.push(li);
+  toDoList.forEach(task => ul.appendChild(task));
 
   input.value = '';
-
+  index++;
   const numberOfTasks = [...document.querySelectorAll('ul li')].length;
   taskNumber.textContent = numberOfTasks;
 };
