@@ -1,5 +1,4 @@
-import removeTask from './remove.js';
-import { toDoList, taskNumber, ul, lis, remove } from './vars.js';
+import { toDoList, taskNumber, ul, renderList } from './vars.js';
 
 let index = 0;
 
@@ -22,14 +21,12 @@ const addTask = e => {
   li.appendChild(btn);
 
   toDoList.push(li);
-  remove();
+  renderList();
 
   input.value = '';
   index++;
 
   taskNumber.textContent = toDoList.length;
-
-  console.log(toDoList);
 };
 
 export default addTask;

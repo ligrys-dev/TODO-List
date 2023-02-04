@@ -1,4 +1,4 @@
-import { toDoList, inputSearch, lis, ul } from './vars.js';
+import { toDoList, inputSearch, ul } from './vars.js';
 
 const searchTask = () => {
   const toDoWithoutBtn = toDoList.map(li => {

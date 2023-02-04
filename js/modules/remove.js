@@ -1,4 +1,4 @@
-import { toDoList, taskNumber, ul, remove } from './vars.js';
+import { toDoList, taskNumber, ul, renderList } from './vars.js';
 
 const removeTask = e => {
   const index = e.target.dataset.key;
@@ -6,9 +6,9 @@ const removeTask = e => {
   console.log(toDoList.map(el => el.textContent));
   toDoList.splice(index, 1);
   console.log(toDoList.map(el => el.textContent));
-  // ul.textContent = '';
-  // remove();
-  // taskNumber.textContent = toDoList.length;
+  ul.textContent = '';
+  renderList();
+  taskNumber.textContent = toDoList.length;
 };
 
 export default removeTask;
