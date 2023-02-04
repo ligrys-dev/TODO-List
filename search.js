@@ -6,7 +6,7 @@ const searchTask = () => {
   const lisWithoutBtn = lis.map(li => {
     return li.textContent
       .split('')
-      .splice(0, li.textContent.length - 5)
+      .splice(0, li.textContent.length - 1)
       .join('');
   });
 
@@ -26,7 +26,7 @@ const searchTask = () => {
       filterLi.dataset.key = DatasetNumber;
 
       const btn = document.createElement('button');
-      btn.textContent = 'usuń';
+      btn.textContent = 'x';
       btn.dataset.key = DatasetNumber;
 
       filterLi.appendChild(btn);
