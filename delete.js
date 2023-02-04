@@ -1,7 +1,7 @@
 const removeTask = e => {
-  e.target.remove();
+  e.target.parentNode.remove();
 };
 
-document.querySelectorAll('li').forEach(li => {
-  li.addEventListener('click', removeTask);
+document.querySelectorAll('li button').forEach(btn => {
+  btn.addEventListener('click', removeTask);
 });
