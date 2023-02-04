@@ -1,9 +1,8 @@
 const input = document.querySelector('#search');
 const lis = [...document.querySelectorAll('li')];
+const ul = document.querySelector('ul');
 
-const search = () => {
-  const inputArr = input.value.split('');
-
+const searchTask = () => {
   const lisWithoutBtn = lis.map(li => {
     return li.textContent
       .split('')
@@ -14,8 +13,6 @@ const search = () => {
   const filterLis = lisWithoutBtn.filter(li => {
     return li.toLowerCase().includes(input.value.toLowerCase());
   });
-
-  const ul = document.querySelector('ul');
 
   if (input.value !== '') {
     ul.textContent = '';
@@ -29,7 +26,6 @@ const search = () => {
       filterLi.dataset.key = DatasetNumber;
 
       const btn = document.createElement('button');
-
       btn.textContent = 'usuń';
       btn.dataset.key = DatasetNumber;
 
@@ -44,4 +40,4 @@ const search = () => {
   }
 };
 
-window.addEventListener('keyup', search);
+window.addEventListener('keyup', searchTask);
