@@ -1,4 +1,5 @@
-import { toDoList, inputSearch, ul } from './vars.js';
+import { toDoList, inputSearch, ul, renderList } from './vars.js';
+import removeTask from './remove.js';
 
 const searchTask = () => {
   const toDoWithoutBtn = toDoList.map(li => {
@@ -24,6 +25,7 @@ const searchTask = () => {
       const btn = document.createElement('button');
       btn.textContent = 'x';
       btn.dataset.key = DatasetNumber;
+      btn.addEventListener('click', removeTask);
 
       filterLi.appendChild(btn);
       ul.appendChild(filterLi);
